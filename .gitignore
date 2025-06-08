@@ -1,1 +1,5 @@
-node_modules
+.features-gen/
+.vscode/
+reports/
+test-results/
+node_modules/
