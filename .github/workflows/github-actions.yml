@@ -27,6 +27,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Set HOME for Playwright (Firefox workaround)
+        run: echo "HOME=/root" >> $GITHUB_ENV
+
       - name: Run Playwright BDD tests
         run: npm test
 
