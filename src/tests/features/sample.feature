@@ -1,3 +1,4 @@
+@tagExample
 Feature: Playwright site
 
   Scenario: Check get started link
