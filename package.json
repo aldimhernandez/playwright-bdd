@@ -1,0 +1,26 @@
+{
+  "name": "playwright-bdd",
+  "version": "1.0.0",
+  "description": "playwright-bdd project",
+  "keywords": [
+    "playwright",
+    "bdd",
+    "gherkin",
+    "typescript"
+  ],
+  "homepage": "https://github.com/aldimhernandez/playwright-bdd#readme",
+  "bugs": {
+    "url": "https://github.com/aldimhernandez/playwright-bdd/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aldimhernandez/playwright-bdd.git"
+  },
+  "license": "ISC",
+  "author": "https://github.com/aldimhernandez",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
