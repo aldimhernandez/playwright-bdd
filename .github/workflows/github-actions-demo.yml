@@ -27,8 +27,4 @@ jobs:
       - name: Run Playwright BDD tests
         run: npm test
 
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
-
       - run: echo "🍏 This job's status is ${{ job.status }}."
