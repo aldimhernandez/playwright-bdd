@@ -33,6 +33,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: cucumber-report
-          path: reports/cucumber/index.html
+          path: reports/cucumber
 
       - run: echo "🍏 This job's status is ${{ job.status }}."
