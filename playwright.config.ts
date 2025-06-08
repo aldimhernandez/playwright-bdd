@@ -1,4 +1,4 @@
-import { defineConfig } from '@playwright/test';
+import { defineConfig, devices } from '@playwright/test';
 import { defineBddConfig, cucumberReporter } from 'playwright-bdd';
 
 const testDir = defineBddConfig({
@@ -6,6 +6,8 @@ const testDir = defineBddConfig({
   steps: 'src/tests/steps/**/*.ts',
   importTestFrom: "src/fixtures/Fixtures.ts",
   disableWarnings: { importTestFrom: true },
+  statefulPoms: true,
+  language: 'en',
 });
 
 export default defineConfig({
@@ -21,4 +23,18 @@ export default defineConfig({
     screenshot: 'on',
     trace: 'on',
   },
+  projects: [
+    {
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] },
+    },
+    {
+      name: 'firefox',
+      use: { ...devices['Desktop Firefox'] },
+    },
+    {
+      name: 'webkit',
+      use: { ...devices['Desktop Safari'] },
+    },
+  ],
 });
