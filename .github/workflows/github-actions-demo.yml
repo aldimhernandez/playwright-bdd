@@ -35,4 +35,11 @@ jobs:
           name: cucumber-report
           path: reports/cucumber
 
+      - name: Deploy Cucumber HTML report to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./reports/cucumber
+          publish_branch: gh-pages
+
       - run: echo "🍏 This job's status is ${{ job.status }}."
