@@ -16,6 +16,26 @@ My goal was to explore how to integrate Gherkin-written tests, CI/CD execution w
 - **Rich HTML reports:** Each run generates a visual report with screenshots and traces for debugging.
 - **Real CI/CD:** Every push or PR runs the tests and publishes the report automatically to [GitHub Pages](https://aldimhernandez.github.io/playwright-bdd/).
 - **Simple and extensible example:** Perfect for anyone wanting to start experimenting with playwright-bdd and CI/CD.
+- **Page Object Model (POM):** The project uses the Page Object Model pattern. Each page or section is represented by a class (e.g., `HomePage`, `IntroPage`), making tests more maintainable and readable. Page objects are located in [`src/pages/`](src/pages/).
+
+---
+
+## Using custom fixtures
+
+To use custom fixtures as described in the [playwright-bdd documentation](https://vitalets.github.io/playwright-bdd/#/getting-started/add-fixtures),
+**you must add the `importTestFrom` path in your Playwright config:**
+
+```typescript
+// playwright.config.ts
+const testDir = defineBddConfig({
+  features: "src/tests/features/**/*.feature",
+  steps: "src/tests/steps/**/*.ts",
+  importTestFrom: "src/fixtures/Fixtures.ts", // <-- Required for custom fixtures!
+  disableWarnings: { importTestFrom: true },
+});
+```
+
+This allows you to use your own fixtures in your step definitions, as shown in [`src/fixtures/Fixtures.ts`](src/fixtures/Fixtures.ts).
 
 ---
 
@@ -24,13 +44,15 @@ My goal was to explore how to integrate Gherkin-written tests, CI/CD execution w
 ```
 .
 ├── src/
+│   ├── fixtures/        # Custom Playwright fixtures
+│   ├── pages/           # Page Object Model classes
 │   └── tests/
 │       ├── features/    # .feature files (Gherkin)
 │       └── steps/       # Step definitions (TypeScript)
 ├── reports/
 │   └── cucumber/        # Generated HTML report
 ├── .github/workflows/   # GitHub Actions workflows
-├── playwright.config.js
+├── playwright.config.ts
 ├── package.json
 └── tsconfig.json
 ```
