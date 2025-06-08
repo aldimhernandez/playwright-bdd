@@ -29,7 +29,9 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.52.0",
+    "@types/node": "^22.15.30",
     "playwright-bdd": "^8.3.0",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
   }
 }
