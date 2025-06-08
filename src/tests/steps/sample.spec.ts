@@ -1,16 +1,13 @@
-import { expect } from '@playwright/test';
-import { createBdd } from 'playwright-bdd';
+import { Given, When, Then } from "../../fixtures/Fixtures.ts";
 
-const { Given, When, Then } = createBdd();
-
-Given('I am on home page', async ({ page }) => {
-    await page.goto('https://playwright.dev');
+Given('I am on home page', async ({ homePage }) => {
+    await homePage.goto();
 });
 
-When('I click link {string}', async ({ page }, name) => {
-    await page.getByRole('link', { name }).click();
+When('I click link {string}', async ({ homePage }, name) => {
+    await homePage.getElementByText(name);
 });
 
-Then('I see in title {string}', async ({ page }, keyword) => {
-    await expect(page).toHaveTitle(new RegExp(keyword));
+Then('I see in title {string}', async ({ introPage }, keyword) => {
+    await introPage.validateTitle(keyword);
 });
