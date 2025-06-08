@@ -25,7 +25,8 @@
     "test:ui": "npx bddgen && npx playwright test --ui",
     "test:debug": "npx bddgen && npx playwright test --verbose",
     "playwright:report": "npx playwright show-report",
-    "cucumber:report": "start reports/cucumber/index.html"
+    "cucumber:report": "start reports/cucumber/index.html",
+    "test:tag": "npx bddgen --tags '@tagExample' && npx playwright test"
   },
   "devDependencies": {
     "@playwright/test": "^1.52.0",
