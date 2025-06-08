@@ -26,6 +26,9 @@ jobs:
       - name: Run Playwright BDD tests
         run: npm test
 
+      - name: List test-results and reports
+        run: ls -R test-results || echo "No test-results" && ls -R reports || echo "No reports"
+
       - name: Upload Cucumber HTML report
         uses: actions/upload-artifact@v4
         with:
